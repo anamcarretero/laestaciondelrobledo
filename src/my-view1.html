@@ -1,0 +1,118 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<!--<link rel="import" href="../bower_components/iron-icons/maps-icons.html">-->
+
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-view1">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        height: 100vh;
+        color: #9978b9;
+        --paper-input-container-color: #9978b9;
+        --paper-input-container-focus-color: #c7c7c7;
+        --paper-input-container-input-color:  #c7c7c7;
+        --paper-button: {
+          width: 100%;
+          margin: 30px 0 0 0;
+          background-color: rgb(46, 44, 60);
+          color: rgba(255,255,255,0.5);
+          padding: 15px;
+          font-family: 'Roboto', 'Noto', sans-serif;
+        }
+      }
+
+      .login-background {
+        height: 100%;
+        padding: 30px;
+        box-sizing: border-box;
+        /*background: rgb(101,121,155); !* Old browsers *!*/
+        /*background: -moz-linear-gradient(top,  rgba(101,121,155,1) 0%, rgba(94,37,99,1) 58%, rgba(94,37,99,1) 100%); !* FF3.6-15 *!*/
+        /*background: -webkit-linear-gradient(top,  rgba(101,121,155,1) 0%,rgba(94,37,99,1) 58%,rgba(94,37,99,1) 100%); !* Chrome10-25,Safari5.1-6 *!*/
+        /*background: linear-gradient(to bottom,  rgba(101,121,155,1) 0%,rgba(94,37,99,1) 58%,rgba(94,37,99,1) 100%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!*/
+        /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#65799b', endColorstr='#5e2563',GradientType=0 ); !* IE6-9 *!*/
+
+        background: rgb(55,52,71); /* Old browsers */
+        background: -moz-linear-gradient(-45deg, rgba(55,52,71,1) 0%, rgba(68,59,79,1) 54%, rgba(68,59,79,1) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(-45deg, rgba(55,52,71,1) 0%,rgba(68,59,79,1) 54%,rgba(68,59,79,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(135deg, rgba(55,52,71,1) 0%,rgba(68,59,79,1) 54%,rgba(68,59,79,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#373447', endColorstr='#443b4f',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+        /*background: rgb(156,39,176); !* Old browsers *!*/
+        /*background: -moz-linear-gradient(-45deg, rgba(156,39,176,1) 0%, rgba(0,150,136,1) 100%); !* FF3.6-15 *!*/
+        /*background: -webkit-linear-gradient(-45deg, rgba(156,39,176,1) 0%,rgba(0,150,136,1) 100%); !* Chrome10-25,Safari5.1-6 *!*/
+        /*background: linear-gradient(135deg, rgba(156,39,176,1) 0%,rgba(0,150,136,1) 100%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!*/
+        /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9c27b0', endColorstr='#009688',GradientType=1 ); !* IE6-9 fallback on horizontal gradient *!*/
+
+        /*background: rgb(106,27,154); !* Old browsers *!*/
+        /*background: -moz-linear-gradient(-45deg, rgba(106,27,154,1) 42%, rgba(0,96,100,1) 100%); !* FF3.6-15 *!*/
+        /*background: -webkit-linear-gradient(-45deg, rgba(106,27,154,1) 42%,rgba(0,96,100,1) 100%); !* Chrome10-25,Safari5.1-6 *!*/
+        /*background: linear-gradient(135deg, rgba(106,27,154,1) 42%,rgba(0,96,100,1) 100%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!*/
+        /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6a1b9a', endColorstr='#006064',GradientType=1 ); !* IE6-9 fallback on horizontal gradient *!*/
+      }
+
+      .logo-container {
+        display: flex;
+        flex-direction: row;
+        height: 40vh;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .title {
+        color: white;
+        opacity: 0.7;
+      }
+      [icon="mail"], [icon="lock"] {
+        padding-right: 8px;
+        width: 20px;
+        height: auto;
+        box-sizing: content-box;
+      }
+    </style>
+
+    <div class="login-background">
+      <div class="logo-container">
+        <!--<div class="logo-image-wrapper">-->
+          <!--<iron-icon icon="maps:local-cafe"></iron-icon>-->
+          <h1 class="title">LA ESTACIÓN</h1>
+        <!--</div>-->
+      </div>
+      <paper-input label="Usuario">
+        <iron-icon icon="mail" slot="prefix"></iron-icon>
+        <div slot="suffix">@gmail.com</div>
+      </paper-input>
+
+      <paper-input label="Contraseña">
+        <iron-icon icon="lock" slot="prefix"></iron-icon>
+      </paper-input>
+
+      <paper-button class="button">entrar</paper-button>
+
+    </div>
+  </template>
+
+  <script>
+    class MyView1 extends Polymer.Element {
+      static get is() { return 'my-view1'; }
+    }
+
+    window.customElements.define(MyView1.is, MyView1);
+  </script>
+</dom-module>

@@ -1,0 +1,177 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-icons/device-icons.html">
+<link rel="import" href="../bower_components/iron-icons/editor-icons.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-collapse-item/paper-collapse-item.html">
+
+
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-view2">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        --paper-fab-background: #8BC34A;
+        --paper-fab: {
+          position: fixed;
+          top: 85vh;
+          right: 20px;
+        };
+        padding: 10px;
+        --paper-collapse-item-header: {
+          @apply --paper-font-body2;
+          height: 1.35em;
+        };
+        --paper-collapse-item-content: {
+          @apply --paper-font-body1;
+        };
+
+        --paper-collapse-item-icon: {
+          height: 1.35em;
+        };
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      iron-icon {
+        padding-right: 8px;
+        color: #000000;
+        opacity: 0.54;
+      }
+
+      .card-content {
+        border-top: 1px solid #e8e8e8;
+      }
+
+      .left-separate {
+        margin-left: 16px;
+      }
+
+      /*.current-state {*/
+        /*color: #F44336;*/
+      /*}*/
+    </style>
+
+    <div class="container">
+      <template is="dom-repeat" items="[[pendingOrders]]">
+        <paper-card>
+          <div class="row-block card-content info">
+            <div class="col-block place-items-center">
+              <iron-icon icon="device:access-time"></iron-icon>
+              <span class="caption secondary-text">[[item.time]]</span>
+            </div>
+            <div class="flex-right-position justify-content-flex-end row-block">
+              <div class="col-block place-items-center">
+                <iron-icon icon="icons:delete"></iron-icon>
+                <span class="caption secondary-text">ELIMINAR</span>
+              </div>
+              <div class="col-block place-items-center left-separate">
+                <iron-icon icon="editor:mode-edit"></iron-icon>
+                <span class="caption secondary-text">EDITAR</span>
+              </div>
+            </div>
+
+          </div>
+          <div class="card-content">
+            <paper-collapse-item header="BEBIDA: [[computeWaiterState(item.waiterState)]]" opened>
+              <template is="dom-repeat" items="[[item.drinks]]">
+                <div>
+                  [[item.description]] [[item.quantity]]
+                </div>
+              </template>
+            </paper-collapse-item>
+          </div>
+
+
+          <div class="card-content">
+            <paper-collapse-item header="COCINA: [[computeKitchenState(item.kitchenState)]]">
+              <template is="dom-repeat" items="[[item.food]]">
+                <div>
+                  [[item.description]] [[item.quantity]]
+                </div>
+              </template>
+            </paper-collapse-item>
+          </div>
+
+          <!--<div class="card-content">-->
+            <!--<div>-->
+              <!--<span class="body-2 current-state">COCINA: [[computeKitchenState(item.kitchenState)]]</span>-->
+            <!--</div>-->
+            <!--<template is="dom-repeat" items="[[item.food]]">-->
+              <!--<div>-->
+                <!--[[item.description]] [[item.quantity]]-->
+              <!--</div>-->
+            <!--</template>-->
+          <!--</div>-->
+          <div class="card-actions flex-right-position">
+            <paper-button class="action-link">Bebida entregada</paper-button>
+            <paper-button class="primary-button">ticket</paper-button>
+          </div>
+        </paper-card>
+      </template>
+    </div>
+
+
+
+
+    <paper-fab icon="add"></paper-fab>
+
+
+  </template>
+
+  <script>
+    class MyView2 extends Polymer.Element {
+      static get is() { return 'my-view2'; }
+        static get properties() {
+            return {
+                pendingOrders: {
+                    type: Array
+                }
+            };
+        }
+        computeWaiterState(state) {
+            if (state === 'pending') {
+                return 'PENDIENTE'
+            }
+            else {
+                return '';
+            }
+        }
+        computeKitchenState(state) {
+            if (state === 'pending') {
+                return 'PENDIENTE'
+            }
+            else {
+                return '';
+            }
+        }
+        computeNextWaiterState(state) {
+            if (state === 'pending') {
+                return 'ENTREGADO'
+            }
+            else {
+                return '';
+            }
+        }
+    }
+
+    window.customElements.define(MyView2.is, MyView2);
+  </script>
+</dom-module>
