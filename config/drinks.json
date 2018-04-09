@@ -1,0 +1,269 @@
+{
+  "drinks": [
+    {"cerveza":
+    [
+      {
+        "name": "Mahou Cláisca",
+        "size": [
+          {"Tubo": 2.30},
+          {"Botellín": 2.30},
+          {"Tercio": 2.80}
+        ]
+      },
+      {
+        "name": "Mahou Cinco Estrellas",
+        "size": [
+          {"Tubo": 2.30},
+          {"Botellín": 2.30},
+          {"Tercio": 2.80}
+        ]
+      },
+      {
+        "name": "Mahou Cinco Estrellas",
+        "size": [
+          {"Tubo": 2.30},
+          {"Botellín": 2.30},
+          {"Tercio": 2.80}
+        ]
+      },
+      {
+        "name": "Mahou Limóm",
+        "size": [
+          {"Tubo": 2.30},
+          {"Botellín": 2.30},
+          {"Tercio": 2.80}
+        ]
+      },
+      {
+        "name": "Mahou Clara",
+        "size": [
+          {"Tubo": 2.30}
+        ]
+      },
+      {
+        "name": "Mahou SIN",
+        "size": [
+          {"Tubo": 2.30},
+          {"Botellín": 2.30},
+          {"Tercio": 2.80}
+        ]
+      },
+      {
+        "name": "Mahou Limón SIN",
+        "size": [
+          {"Tubo": 2.30},
+          {"Botellín": 2.30},
+          {"Tercio": 2.80}
+        ]
+      },
+      {
+        "name": "Mahou Clara SIN",
+        "size": [
+          {"Tubo": 2.30}
+        ]
+      },
+      {
+        "name": "Mahou SIN",
+        "size": [
+          {"Tubo": 2.30},
+          {"Botellín": 2.30},
+          {"Tercio": 2.80}
+        ]
+      },
+      {
+        "name": "Estrella Galicia",
+        "size": [
+          {"Botellín": 2.30},
+          {"Tercio": 2.80}
+        ]
+      },
+      {
+        "name": "Estrella Galicia SIN",
+        "size": [
+          {"Botellín": 2.30},
+          {"Tercio": 2.80}
+        ]
+      },
+      {
+        "name": "Mahou Maestra",
+        "size": [
+          {"Tercio": 2.80}
+        ]
+      },
+      {
+        "name": "Mahou Negra",
+        "size": [
+          {"Tercio": 2.80}
+        ]
+      },
+      {
+        "name": "Mahou Light",
+        "size": [
+          {"Tercio": 2.80}
+        ]
+      },
+      {
+        "name": "Mahou SIN GLUTEN",
+        "size": [
+          {"Tercio": 2.80}
+        ]
+      },
+      {
+        "name": "Alhambra Tradicional",
+        "size": [
+          {"Tercio": 2.80}
+        ]
+      },
+      {
+        "name": "Alhambra Especial",
+        "size": [
+          {"Tercio": 2.80}
+        ]
+      },
+      {
+        "name": "Alhambra 1925",
+        "size": [
+          {"Tercio": 4.40}
+        ]
+      }
+    ]},
+    {"refresco":
+    [
+      {
+        "name": "Coca Cola",
+        "size": [{
+          "Normal": 2.30
+        }]
+      },
+      {
+        "name": "Coca Cola ZERO",
+        "size": [{
+          "Normal": 2.30
+        }]
+      },
+      {
+        "name": "Fanta Naranja",
+        "size": [{
+          "Normal": 2.30
+        }]
+      },
+      {
+        "name": "Fanta Limón",
+        "size": [{
+          "Normal": 2.30
+        }]
+      },
+      {
+        "name": "Trina Naranja",
+        "size": [{
+          "Normal": 2.30
+        }]
+      },
+      {
+        "name": "Trina Limón",
+        "size": [{
+          "Normal": 2.30
+        }]
+      }
+      {
+        "name": "Nestea",
+        "size": [{
+          "Normal": 2.30
+        }]
+      },
+      {
+        "name": "Sprite",
+        "size": [{
+          "Normal": 2.30
+        }]
+      },
+      {
+        "name": "Zumo melocotón envasado",
+        "size": [{
+          "Normal": 2.30
+        }]
+      },
+      {
+        "name": "Zumo Piña envasado",
+        "size": [{
+          "Normal": 2.30
+        }]
+      },
+      {
+        "name": "Zumo Multifrutas envasado",
+        "size": [{
+          "Normal": 2.30
+        }]
+      },
+      {
+        "name": "Zumo naranja envasado",
+        "size": [{
+          "Normal": 2.30
+        }]
+      },
+      {
+        "name": "Tónica",
+        "size": [{
+          "Normal": 2.30
+        }]
+      }
+      {
+        "name": "Agua pequeña",
+        "size": [{
+          "Normal": 2.30
+        }]
+      },
+      {
+        "name": "Agua Grande",
+        "size": [{
+          "Normal": 2.80
+        }]
+      },
+      {
+        "name": "Agua con gas",
+        "size": [{
+          "Normal": 2.30
+        }]
+      }
+    ]},
+    {"vino":
+    [
+      {
+        "name": "Salobreña",
+        "size": [{
+          "Normal": 2.30
+        }]
+      },
+      {
+        "name": "Tinto de Verano con Limón",
+        "size": [{
+          "Normal": 2.50
+        }]
+      },
+      {
+        "name": "Vino Tinto",
+        "size": [{
+          "Normal": 2.30
+        }]
+      },
+      {
+        "name": "Vino Blanco",
+        "size": [{
+          "Normal": 2.30
+        }]
+      },
+      {
+        "name": "Vino Blanco Espumoso",
+        "size": [{
+          "Normal": 2.30
+        }]
+      },
+      {
+        "name": "Vino Rosado",
+        "size": [{
+          "Normal": 2.80
+        }]
+      }
+    ]}
+  ]
+}
