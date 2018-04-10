@@ -1,6 +1,7 @@
 {
   "drinks": [
-    {"cerveza":
+    {"category": "Cerveza",
+      "options":
     [
       {
         "name": "Mahou Cláisca",
@@ -127,7 +128,8 @@
         ]
       }
     ]},
-    {"refresco":
+    {"category": "Refresco",
+      "options":
     [
       {
         "name": "Coca Cola",
@@ -164,7 +166,7 @@
         "size": [{
           "Normal": 2.30
         }]
-      }
+      },
       {
         "name": "Nestea",
         "size": [{
@@ -206,7 +208,7 @@
         "size": [{
           "Normal": 2.30
         }]
-      }
+      },
       {
         "name": "Agua pequeña",
         "size": [{
@@ -226,7 +228,8 @@
         }]
       }
     ]},
-    {"vino":
+    {"category": "Vino",
+      "options":
     [
       {
         "name": "Salobreña",

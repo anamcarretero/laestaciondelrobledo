@@ -9,10 +9,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/promise-polyfill/promise-polyfill.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu-light.html">
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
 
 
 <link rel="import" href="shared-styles.html">
@@ -30,17 +32,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             auto
             url="../config/drinks.json"
             handle-as="json"
-            last-response="{{drinks}}"
-            on-response="handleResponse"
-            debounce-duration="300"></iron-ajax>
+            last-response="{{drinksConfig}}"
+            debounce-duration="800"></iron-ajax>
+      <div class="row-block">
+          <paper-dropdown-menu-light label="Dinosaurs (light)" no-animations="true">
+              <paper-listbox id="categoryListbox" slot="dropdown-content" class="dropdown-content" no-animations="true" selected-attribute="name" selected="{{drinkCategorySelected}}">
+                  <template is="dom-repeat" items="[[drinksConfig.drinks]]">
+                      <paper-item name="[[item.category]]">[[item.category]]</paper-item>
+                  </template>
+              </paper-listbox>
+          </paper-dropdown-menu-light>
 
-    <paper-dropdown-menu-light label="Dinosaurs (light)" no-animations="true">
-      <paper-listbox slot="dropdown-content" class="dropdown-content" no-animations="true">
-        <template is="dom-repeat" items="[[drinks.drinks]]">
-          <paper-item>[[item.key]]</paper-item>
-        </template>
-      </paper-listbox>
-    </paper-dropdown-menu-light>
+          <template is="dom-if" if="[[drinkCategorySelected]]">
+              <paper-dropdown-menu-light label="Dinosaurs (light)" no-animations="true">
+                  <paper-listbox slot="dropdown-content" class="dropdown-content">
+                      <template is="dom-repeat" items="[[_getItemsByDrinkCategorySelected(drinkCategorySelected)]]">
+                          <paper-item value="[[item.name]]">[[item.name]]</paper-item>
+                      </template>
+                  </paper-listbox>
+              </paper-dropdown-menu-light>
+              <paper-input type="number" value="1" auto-validate allowed-pattern="[0-99]"></paper-input>
+          </template>
+      </div>
+
+
 
   </template>
 
@@ -49,14 +64,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       static get is() { return 'my-view3'; }
         static get properties() {
             return {
-                drinks: {
+                drinksConfig: {
+                    type: Object
+                },
+                drinkCategorySelected: {
+                    type: String
+                },
+                ticket: {
                     type: Object
                 }
             };
         }
-        handleResponse(response) {
-          console.log('recibido', response
+        handleResponse(event) {
+          console.log('recibido', event
           );
+        }
+        _getItemsByDrinkCategorySelected(categorySelected) {
+          var i=0;
+          var listRequired={};
+          for(i; i<this.drinksConfig.drinks.length; i++) {
+              if(this.drinksConfig.drinks[i].category === this.$.categoryListbox.selectedItem.name) {
+                  listRequired = this.drinksConfig.drinks[i].options;
+              }
+          }
+          return listRequired;
         }
     }
 
